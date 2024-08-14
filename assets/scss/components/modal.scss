@@ -1,0 +1,205 @@
+.modal-overflow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        transition: .5s;
+    }
+}
+
+.modal {
+    background: $base-white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 610px;
+    width: 100%;
+
+    &-head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        &-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        &-group {
+
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+            border-bottom: 1px solid $base-gray;
+
+            input {
+                width: 100%;
+                border: 0;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            #country {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            textarea {
+                width: 100%;
+                padding: 15px;
+                border-radius: 0;
+                border: 1px solid $base-gray;
+                height: 100px;
+            }
+
+            &:has(textarea) {
+                border-bottom: 0;
+            }
+
+            &:has(.error) {
+                border-bottom: 1px solid $error-color;
+
+                input {
+                    color: $error-color;
+
+                    &::placeholder {
+                        color: $error-color;
+                    }
+                }
+            }
+        }
+
+        &-politics-checkbox {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 13px;
+            margin-bottom: 30px;
+
+            input {
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+
+                &:checked+.custom-checkbox {
+                    background: url('../../../public/icons/check.svg') center no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            label {
+                font-size: 12px;
+
+                a {
+                    color: $base-orange;
+                }
+            }
+
+            .custom-checkbox {
+                min-width: 16px;
+                height: 16px;
+                border: 1px solid $base-gray;
+            }
+        }
+
+        .base-btn {
+            width: 250px;
+            padding: 12px 0px;
+            font-size: 12px;
+
+            &.disabled-button {
+                background: #e04f39bb;
+            }
+        }
+    }
+
+    &-select-group {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.dropdown-list {
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    border: 1px solid #E9E9F0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 5px 10px 2px #2F325514;
+}
+
+.dropdown-open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.error {
+    color: $error-color;
+    font-size: 12px;
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+}
+
+.modal-selet-open {
+
+    svg {
+        transition: .3s;
+    }
+
+    &.active {
+        svg {
+            transform: rotate(180deg);
+            transition: .3s;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .modal {
+        max-width: 280px;
+        padding: 15px 20px 40px 20px;
+
+        .base-btn {
+            width: 240px;
+        }
+    }
+}

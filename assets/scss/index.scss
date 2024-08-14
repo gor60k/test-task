@@ -1,0 +1,126 @@
+@import 'scss-reset/reset';
+@import '/assets/fonts/stylesheet.css';
+@import '/assets/scss/vars.scss';
+
+@import '/assets/scss/components/header.scss';
+@import '/assets/scss/components/modal.scss';
+@import '/assets/scss/components/calendare.scss';
+
+body {
+    font-family: 'Gilroy', sans-serif;
+    color: $base-black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    // display: block;
+    max-width: 1170px;
+    margin: auto;
+}
+
+.swiper {
+    height: 100%;
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+
+    &-button {
+        transition: .3s;
+
+        &-disabled {
+            opacity: 0;
+            transition: .3s;
+        }
+    }
+}
+
+.base-btn {
+    padding: 18px 0px;
+    width: 270px;
+    border-radius: 70px;
+    background: $base-orange;
+    color: $base-white;
+    transition: .3s;
+
+    &:hover {
+        background: $hover-color;
+        transition: .3s;
+    }
+}
+
+.base-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    span {
+        color: $base-white;
+        position: relative;
+
+        &::after {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: $base-white;
+            transition: .3s;
+        }
+    }
+
+    svg {
+        transition: .3s;
+    }
+
+    &:hover {
+
+        span {
+            &::after {
+                width: 100%;
+                transition: .3s
+            }
+        }
+
+        svg {
+            transform: rotate(-45deg);
+            transition: .3s;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        max-width: 840px;
+    }
+
+    .base-btn {
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        max-width: 570px;
+    }
+
+    .swiper-prev,
+    .swiper-next {
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .wrapper {
+        max-width: 280px;
+    }
+}

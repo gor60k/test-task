@@ -1,0 +1,126 @@
+.header {
+    width: 100%;
+    display: block;
+
+    &-wrapper {
+        padding: 31px 0px;
+        max-width: 1170px;
+        margin: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-nav {
+
+        display: flex;
+        gap: 40px;
+
+        &-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+
+            span {
+                transition: .3s;
+            }
+
+            &:hover {
+                span {
+                    color: $base-orange;
+                    transition: .3s;
+                }
+            }
+        }
+
+        &-phone {
+            font-size: 16px;
+            color: black;
+            transition: .3s;
+            line-height: 160%;
+
+            &:hover {
+                color: $base-orange;
+                transition: .3s;
+            }
+        }
+
+        &-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
+}
+.mobile-header-btn {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        &-wrapper {
+            max-width: 840px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        &-wrapper {
+            max-width: 570px;
+        }
+
+        &-nav {
+
+            &-btn {
+                span {
+                    display: none;
+                }
+            }
+
+            &-icons {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .header {
+
+        &-logo {
+            svg {
+                width: 130px;
+            }
+        }
+
+        &-wrapper {
+            max-width: 280px;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+
+        &-nav {
+            gap: 15px;
+            flex-direction: row-reverse;
+
+            &:last-child {
+                display: none;
+            }
+
+            &-phone {
+                display: none;
+            }
+
+        }
+
+    }
+
+    .mobile-header-btn {
+        display: block;
+    }
+}
