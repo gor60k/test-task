@@ -1,0 +1,48 @@
+@use 'scss-reset';
+@import './variables';
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#__nuxt {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  @media screen and (max-width: $laptop) {
+    max-width: 800px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    max-width: 500px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    max-width: 300px;
+  }
+}
